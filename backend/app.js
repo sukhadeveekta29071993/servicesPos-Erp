@@ -15,6 +15,9 @@ const errorHandler = require("./middleware/errorHandler");
 //auth routes
 const authRoutes = require("./routes/authRoutes");
 
+//business routes
+const businessRoutes = require("./routes/businessRoutes");
+
 const app = express();
 
 // Security headers
@@ -61,9 +64,15 @@ const apiLimiter = rateLimit({
 
 app.use("/api", apiLimiter);
 
-// API routes
+//test routes
 app.use(`/api/${env.API_VERSION}/health`, healthRoutes);
+
+//auth routes
 app.use(`/api/${env.API_VERSION}/auth`, authRoutes);
+
+//business routes
+app.use(`/api/${env.API_VERSION}/business`, businessRoutes);
+
 // Root route
 app.get("/", (req, res) => {
   res.status(200).json({

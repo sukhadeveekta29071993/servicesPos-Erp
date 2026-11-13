@@ -22,6 +22,10 @@ const ROLE_PERMISSIONS = {
     "service.read",
     "service.create",
     "reports.read",
+    "business.read",
+    "business.create",
+    "business.update",
+    "business.brand.update",
   ],
 
   salesperson: [
