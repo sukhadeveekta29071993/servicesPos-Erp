@@ -12,6 +12,9 @@ const healthRoutes = require("./routes/healthRoutes");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 
+//auth routes
+const authRoutes = require("./routes/authRoutes");
+
 const app = express();
 
 // Security headers
@@ -60,7 +63,7 @@ app.use("/api", apiLimiter);
 
 // API routes
 app.use(`/api/${env.API_VERSION}/health`, healthRoutes);
-
+app.use(`/api/${env.API_VERSION}/auth`, authRoutes);
 // Root route
 app.get("/", (req, res) => {
   res.status(200).json({

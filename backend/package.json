@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "check": "node --check server.js"
+    "check": "node --check server.js",
+    "seed:admin": "node scripts/createSuperAdmin.js",
+    "check:all": "echo Run syntax checks with PowerShell"
   },
   "keywords": [],
   "author": "",
