@@ -22,6 +22,9 @@ const businessRoutes = require("./routes/businessRoutes");
 const branchRoutes = require("./routes/branchRoutes");
 const locationRoutes = require("./routes/locationRoutes");
 
+//user routes
+const userRoutes = require("./routes/userRoutes");
+
 const app = express();
 
 // Security headers
@@ -82,6 +85,9 @@ app.use(`/api/${env.API_VERSION}/branches`, branchRoutes);
 
 // Location management routes
 app.use(`/api/${env.API_VERSION}/locations`, locationRoutes);
+
+// User management routes
+app.use(`/api/${env.API_VERSION}/users`, userRoutes);
 
 // Root route
 app.get("/", (req, res) => {

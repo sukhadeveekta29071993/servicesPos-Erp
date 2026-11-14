@@ -31,6 +31,4 @@ router.post(
   register,
 );
 
-router.post("/logout", logout);
-
 module.exports = router;

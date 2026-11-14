@@ -7,6 +7,11 @@ const ROLE_PERMISSIONS = {
     "users.read",
     "users.create",
     "users.update",
+    "users.delete",
+    "users.reset_password",
+    "users.assign_role",
+    "users.assign_branch",
+    "users.custom_permissions",
 
     "customers.read",
     "customers.create",

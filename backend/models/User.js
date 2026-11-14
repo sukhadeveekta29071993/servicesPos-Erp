@@ -13,19 +13,19 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "User name is required"],
+      required: true,
       trim: true,
-      minLength: 2,
-      maxLength: 100,
+      minlength: 2,
+      maxlength: 100,
     },
 
     email: {
       type: String,
-      required: [true, "Email is required"],
+      required: true,
       unique: true,
       lowercase: true,
       trim: true,
-      maxLength: 150,
+      maxlength: 150,
     },
 
     phone: {
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema(
 
     password: {
       type: String,
-      required: [true, "Password is required"],
+      required: true,
       minlength: 8,
       select: false,
     },
@@ -45,7 +45,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: USER_ROLES,
       required: true,
-      default: "customer",
+    },
+
+    branch: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Branch",
+      default: null,
+      index: true,
     },
 
     permissions: {
@@ -113,12 +119,13 @@ userSchema.methods.toSafeObject = function () {
     email: this.email,
     phone: this.phone,
     role: this.role,
+    branch: this.branch || null,
     permissions: this.permissions,
     approved: this.approved,
     status: this.status,
     isEmailVerified: this.isEmailVerified,
     lastLoginAt: this.lastLoginAt,
-    createdAt: this.created_at,
+    createdAt: this.createdAt || this.created_at,
   };
 };
 
